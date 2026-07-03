@@ -6,16 +6,26 @@
 
 /* ---------- Design tokens ---------- */
 :root {
-  /* Grayscale palette — no color hue anywhere, true monochrome */
-  --bg: #0a0a0a;
-  --bg-elevated: #131313;
-  --surface: #1a1a1a;
-  --border: #2b2b2b;
-  --border-strong: #3d3d3d;
-  --text: #ededed;
-  --text-muted: #9a9a9a;
-  --text-faint: #5c5c5c;
-  --white: #ffffff;
+  /* Dark, greyish-green base built from the palette:
+     #091413 · #285A48 · #408A71 · #B0E4CC
+     Background stays deep and calm; the greens/mint are used sparingly
+     as accents so the page still reads as minimal, not busy. */
+  --bg: #0a1211;          /* near-black, slightly green-grey base */
+  --bg-elevated: #101e1a; /* cards, terminal window */
+  --surface: #142822;     /* nav bar surface */
+  --border: #1d332b;
+  --border-strong: #285a48; /* palette's deep green, used for stronger borders */
+  --text: #e2f0e9;        /* soft off-white with a hint of mint, not pure white */
+  --text-muted: #8ba99b;
+  --text-faint: #536d61;
+
+  /* Accent pair from the palette, used sparingly as the points of colour */
+  --teal: #408a71;        /* primary accent */
+  --teal-deep: #336d5a;   /* hover/active state for teal elements */
+  --mint: #b0e4cc;        /* bright highlight accent, used very sparingly */
+
+  /* Dark text for sitting on top of the lighter teal/mint accents */
+  --ink: #071110;
 
   /* Type */
   --font-display: "Space Grotesk", sans-serif;
@@ -87,14 +97,14 @@ section {
 }
 
 ::selection {
-  background: var(--white);
-  color: var(--bg);
+  background: var(--teal);
+  color: var(--ink);
 }
 
 /* Visible keyboard focus for accessibility */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--white);
+  outline: 2px solid var(--teal);
   outline-offset: 3px;
   border-radius: 2px;
 }
@@ -107,7 +117,7 @@ button:focus-visible {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--white);
+  background: var(--teal);
   pointer-events: none;
   z-index: 999;
   transform: translate(-50%, -50%);
@@ -117,7 +127,7 @@ button:focus-visible {
 
 @media (hover: hover) and (pointer: fine) {
   .cursor-dot {
-    opacity: 0.6;
+    opacity: 0.55;
   }
 }
 
@@ -131,7 +141,7 @@ button:focus-visible {
   right: 0;
   z-index: 100;
   border-bottom: 1px solid transparent;
-  background: rgba(10, 10, 10, 0.7);
+  background: rgba(10, 18, 17, 0.75);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   transition: border-color 0.3s var(--ease);
@@ -195,13 +205,14 @@ button:focus-visible {
   border: 1px solid var(--border-strong);
   padding: 0.5rem 1rem;
   border-radius: var(--radius);
-  transition: background 0.2s var(--ease), color 0.2s var(--ease);
+  transition: background 0.2s var(--ease), color 0.2s var(--ease), border-color 0.2s var(--ease);
   white-space: nowrap;
 }
 
 .nav__cta:hover {
-  background: var(--white);
-  color: var(--bg);
+  background: var(--teal);
+  border-color: var(--teal);
+  color: var(--ink);
 }
 
 .nav__toggle {
@@ -252,8 +263,8 @@ button:focus-visible {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(to right, rgba(255, 255, 255, 0.035) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+    linear-gradient(to right, rgba(176, 228, 204, 0.045) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(176, 228, 204, 0.045) 1px, transparent 1px);
   background-size: 48px 48px;
   mask-image: radial-gradient(ellipse 80% 60% at 50% 30%, black 40%, transparent 100%);
   pointer-events: none;
@@ -287,7 +298,7 @@ button:focus-visible {
 }
 
 .hero__title-outline {
-  -webkit-text-stroke: 1.5px var(--text);
+  -webkit-text-stroke: 1.5px var(--mint);
   color: transparent;
 }
 
@@ -335,13 +346,13 @@ button:focus-visible {
 }
 
 .btn--primary {
-  background: var(--white);
-  color: var(--bg);
+  background: var(--teal);
+  color: var(--ink);
   font-weight: 600;
 }
 
 .btn--primary:hover {
-  background: var(--text);
+  background: var(--teal-deep);
 }
 
 .btn--ghost {
@@ -350,7 +361,8 @@ button:focus-visible {
 }
 
 .btn--ghost:hover {
-  border-color: var(--white);
+  border-color: var(--teal-deep);
+  color: var(--teal-deep);
 }
 
 /* ---------- Terminal (signature element) ---------- */
@@ -359,7 +371,7 @@ button:focus-visible {
   border: 1px solid var(--border);
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 30px 60px -20px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 30px 55px -25px rgba(0, 0, 0, 0.55);
   opacity: 0;
   animation: fade-up 0.8s var(--ease) 0.35s forwards;
 }
@@ -374,10 +386,22 @@ button:focus-visible {
 }
 
 .terminal__dot {
-  width: 10px;
-  height: 10px;
+  width: 11px;
+  height: 11px;
   border-radius: 50%;
   background: var(--border-strong);
+}
+
+/* Classic macOS window-control colours: red (close),
+   yellow (minimize), green (maximize) */
+.terminal__dot--close {
+  background: #ff5f57;
+}
+.terminal__dot--minimize {
+  background: #febc2e;
+}
+.terminal__dot--maximize {
+  background: #28c840;
 }
 
 .terminal__path {
@@ -402,7 +426,8 @@ button:focus-visible {
 }
 
 .terminal__prompt {
-  color: var(--white);
+  color: var(--mint);
+  font-weight: 500;
 }
 
 .terminal__output {
@@ -413,7 +438,7 @@ button:focus-visible {
   display: inline-block;
   width: 8px;
   height: 1em;
-  background: var(--white);
+  background: var(--teal);
   vertical-align: text-bottom;
   animation: blink 1s step-end infinite;
   margin-left: 2px;
@@ -554,7 +579,7 @@ button:focus-visible {
   display: block;
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--text-faint);
+  color: var(--mint);
   margin-bottom: 1.25rem;
 }
 
@@ -639,7 +664,8 @@ button:focus-visible {
 }
 
 .project__link:hover {
-  border-color: var(--white);
+  border-color: var(--teal);
+  color: var(--mint);
 }
 
 .projects__more {
