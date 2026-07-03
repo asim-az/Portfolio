@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mohammad Asim — IT Engineer</title>
+  <meta name="description" content="Mohammad Asim - IT Graduate & Developer. Skilled in HTML, CSS, JavaScript, React.js, Docker, and Linux." />
+
+  <!-- Google Fonts: Space Grotesk (display), Inter (body), JetBrains Mono (terminal/code accents) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ============ CUSTOM CURSOR DOT (desktop only, purely decorative) ============ -->
+  <div class="cursor-dot" aria-hidden="true"></div>
+
+  <!-- ============ NAVIGATION ============ -->
+  <header class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#top" class="nav__logo" aria-label="Back to top">
+        <span class="nav__logo-bracket">&lt;</span>MA<span class="nav__logo-bracket">/&gt;</span>
+      </a>
+
+      <nav class="nav__links" id="navLinks">
+        <a href="#about" class="nav__link"><span class="nav__num">01</span>About</a>
+        <a href="#skills" class="nav__link"><span class="nav__num">02</span>Skills</a>
+        <a href="#projects" class="nav__link"><span class="nav__num">03</span>Projects</a>
+        <a href="#contact" class="nav__link"><span class="nav__num">04</span>Contact</a>
+      </nav>
+
+      <a href="https://github.com/asim-az" target="_blank" rel="noopener noreferrer" class="nav__cta">
+        GitHub ↗
+      </a>
+
+      <!-- Mobile menu toggle -->
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- ============ HERO / TERMINAL SIGNATURE SECTION ============ -->
+    <section class="hero">
+      <div class="hero__grid" aria-hidden="true"></div>
+
+      <div class="hero__inner">
+        <div class="hero__text">
+          <p class="hero__eyebrow">// portfolio.init()</p>
+          <h1 class="hero__title">
+            Mohammad<br />
+            <span class="hero__title-outline">Asim</span>
+          </h1>
+          <p class="hero__subtitle">
+            IT Engineer — building clean interfaces, reliable systems, and
+            everything in between the browser and the terminal.
+          </p>
+
+          <div class="hero__actions">
+            <a href="#projects" class="btn btn--primary">View Projects</a>
+            <a href="#contact" class="btn btn--ghost">Get In Touch</a>
+          </div>
+        </div>
+
+        <!-- The signature element: an animated terminal that "whoami"s the visitor through Asim's profile -->
+        <div class="terminal" role="img" aria-label="Terminal window displaying Mohammad Asim's profile information">
+          <div class="terminal__bar">
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__dot"></span>
+            <span class="terminal__path">asim@portfolio: ~</span>
+          </div>
+          <div class="terminal__body" id="terminalBody">
+            <!-- Lines are typed in dynamically via script.js -->
+          </div>
+        </div>
+      </div>
+
+      <a href="#about" class="hero__scroll" aria-label="Scroll to about section">
+        <span class="hero__scroll-line"></span>
+        Scroll
+      </a>
+    </section>
+
+    <!-- ============ ABOUT ============ -->
+    <section class="about" id="about">
+      <div class="section__head">
+        <span class="section__num">01</span>
+        <h2 class="section__title">About</h2>
+      </div>
+
+      <div class="about__grid">
+        <div class="about__text">
+          <p>
+            I'm a B.Tech graduate in Information Technology from the
+            <strong>Government College of Engineering, Aurangabad</strong>.
+            I care about writing code that's easy to read, systems that
+            don't fall over, and interfaces that get out of the user's way.
+          </p>
+          <p>
+            My work spans the full stack — from pixel-level details in the
+            browser with HTML, CSS and JavaScript, to shipping and running
+            applications with Docker on Linux. I'm just as comfortable in
+            a terminal as I am in a design file.
+          </p>
+        </div>
+
+        <dl class="about__stats">
+          <div class="about__stat">
+            <dt>Degree</dt>
+            <dd>B.Tech, Information Technology</dd>
+          </div>
+          <div class="about__stat">
+            <dt>Institute</dt>
+            <dd>Government College of Engineering, Aurangabad</dd>
+          </div>
+          <div class="about__stat">
+            <dt>Experience</dt>
+            <dd>5 Years</dd>
+          </div>
+          <div class="about__stat">
+            <dt>Focus</dt>
+            <dd>Frontend · Systems · DevOps Basics</dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- ============ SKILLS ============ -->
+    <section class="skills" id="skills">
+      <div class="section__head">
+        <span class="section__num">02</span>
+        <h2 class="section__title">Skills</h2>
+      </div>
+
+      <p class="skills__intro">// ls -la ./skills</p>
+
+      <ul class="skills__grid">
+        <li class="skill-card">
+          <span class="skill-card__index">01</span>
+          <h3 class="skill-card__name">HTML</h3>
+          <p class="skill-card__desc">Semantic, accessible markup as the foundation of every build.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">02</span>
+          <h3 class="skill-card__name">CSS</h3>
+          <p class="skill-card__desc">Responsive layouts, animation and design systems from scratch.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">03</span>
+          <h3 class="skill-card__name">JavaScript</h3>
+          <p class="skill-card__desc">Interactive, dependency-light front-end logic.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">04</span>
+          <h3 class="skill-card__name">React.js</h3>
+          <p class="skill-card__desc">Component-driven UIs and state management for real products.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">05</span>
+          <h3 class="skill-card__name">Docker</h3>
+          <p class="skill-card__desc">Containerizing and shipping applications consistently.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">06</span>
+          <h3 class="skill-card__name">Command Line</h3>
+          <p class="skill-card__desc">Comfortable scripting and navigating the shell daily.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">07</span>
+          <h3 class="skill-card__name">Operating Systems</h3>
+          <p class="skill-card__desc">Solid grasp of how processes, memory and I/O actually work.</p>
+        </li>
+        <li class="skill-card">
+          <span class="skill-card__index">08</span>
+          <h3 class="skill-card__name">Linux</h3>
+          <p class="skill-card__desc">Day-to-day development and deployment environment of choice.</p>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============ PROJECTS ============ -->
+    <section class="projects" id="projects">
+      <div class="section__head">
+        <span class="section__num">03</span>
+        <h2 class="section__title">Projects</h2>
+      </div>
+
+      <div class="projects__list">
+
+        <!-- Project 1 -->
+        <article class="project">
+          <div class="project__meta">
+            <span class="project__folder-icon" aria-hidden="true">▸</span>
+            <span class="project__lang">HTML · CSS</span>
+          </div>
+          <h3 class="project__title">TravelWebsite</h3>
+          <p class="project__desc">
+            A responsive travel-agency landing site — my first full build,
+            covering a home, about and contact page with a hand-styled
+            layout and no frameworks.
+          </p>
+          <div class="project__links">
+            <a href="https://github.com/asim-az/TravelWebsite" target="_blank" rel="noopener noreferrer" class="project__link">
+              Source ↗
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project">
+          <div class="project__meta">
+            <span class="project__folder-icon" aria-hidden="true">▸</span>
+            <span class="project__lang">HTML · CSS</span>
+          </div>
+          <h3 class="project__title">FoodWorld</h3>
+          <p class="project__desc">
+            A restaurant / food-ordering concept site focused on clean menu
+            presentation, structured sections, and a fully responsive layout.
+          </p>
+          <div class="project__links">
+            <a href="https://github.com/asim-az/FoodWorld" target="_blank" rel="noopener noreferrer" class="project__link">
+              Source ↗
+            </a>
+          </div>
+        </article>
+
+      </div>
+
+      <a href="https://github.com/asim-az" target="_blank" rel="noopener noreferrer" class="projects__more">
+        See all repositories on GitHub ↗
+      </a>
+    </section>
+
+    <!-- ============ CONTACT ============ -->
+    <section class="contact" id="contact">
+      <div class="section__head">
+        <span class="section__num">04</span>
+        <h2 class="section__title">Contact</h2>
+      </div>
+
+      <div class="contact__inner">
+        <h3 class="contact__headline">Let's build something.</h3>
+        <p class="contact__text">
+          Open to opportunities, collaborations, and conversations about
+          code. Reach out on GitHub or send a message.
+        </p>
+
+        <div class="contact__actions">
+          <a href="https://github.com/asim-az" target="_blank" rel="noopener noreferrer" class="btn btn--primary">
+            github.com/asim-az ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="footer">
+    <p>&copy; <span id="year"></span> Mohammad Asim. Built with HTML, CSS &amp; JavaScript.</p>
+    <a href="#top" class="footer__top">Back to top ↑</a>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
